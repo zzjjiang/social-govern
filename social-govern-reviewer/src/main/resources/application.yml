@@ -1,0 +1,32 @@
+customer:
+  mysql:
+    host: 127.0.0.1
+    port: 3306
+    database: social_govern
+    username: root
+    password: root
+server:
+  port: 9002
+spring:
+  application:
+    name: social-govern-reviewer
+  cloud:
+    nacos:
+      discovery: #Nacos注册中心地址
+        server-addr: 127.0.0.1:8848
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource  #数据源类型
+    driver-class-name: com.mysql.jdbc.Driver    #mysql驱动包
+    url: jdbc:mysql://${customer.mysql.host}:${customer.mysql.port}/${customer.mysql.database}?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: ${customer.mysql.username}
+    password: ${customer.mysql.password}
+dubbo:
+  scan:
+    base-packages: com.jone.social.govern.reviewer
+  protocol:
+    name: dubbo
+    port: 20880
+  registry:
+    # 挂载到 Spring Cloud 注册中心
+    address: spring-cloud://localhost
+
