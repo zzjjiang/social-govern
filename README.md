@@ -1,5 +1,5 @@
 ##2020-03-21
-###该项目用于实操SpringCloud alibaba，力求简洁明了s
+###该项目用于实操SpringCloud alibaba，力求简洁明了
 目前已集成nacos+dubbo
 遇到的问题：
 1、jar包冲突
